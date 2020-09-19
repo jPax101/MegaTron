@@ -1,4 +1,9 @@
-// Test GIt!!!!!!!!!!
+// Team Jean --
+// Jean-Marc Prud'homme (20137035)
+// Jean-Daniel Toupin
+// TP1 IFT 3355 -  MEGATRON
+
+
 THREE.Object3D.prototype.setMatrix = function(a) {
   this.matrix = a;
   this.matrix.decompose(this.position, this.quaternion, this.scale);
@@ -55,7 +60,11 @@ function inverseMat(m){
 
 function idMat4(){
 
-  return new THREE.Matrix4();
+  return new THREE.Matrix4().set(1,0,0,0,
+                                 0,1,0,0,
+                                 0,0,1,0,
+                                 0,0,0,1)
+
 
 }
 
