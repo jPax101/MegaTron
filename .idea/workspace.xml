@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16c7fe57-cdfa-49b0-b1d6-b6dd0333f26b" name="Default Changelist" comment="Changement matrice ID">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A1.js" beforeDir="false" afterPath="$PROJECT_DIR$/A1.js" afterDir="false" />
-    </list>
+    <list default="true" id="16c7fe57-cdfa-49b0-b1d6-b6dd0333f26b" name="Default Changelist" comment="debut sphere" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +70,7 @@
       <option name="presentableId" value="Default" />
       <updated>1600554107461</updated>
       <workItem from="1600554108502" duration="250000" />
-      <workItem from="1600554454490" duration="2195000" />
+      <workItem from="1600554454490" duration="2824000" />
     </task>
     <task id="LOCAL-00001" summary="Commit Test">
       <created>1600554212714</created>
@@ -103,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600555212695</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="debut sphere">
+      <created>1600556947961</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1600556947961</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,7 +128,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit Test" />
     <MESSAGE value="Changement matrice ID" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changement matrice ID" />
+    <MESSAGE value="debut sphere" />
+    <option name="LAST_COMMIT_MESSAGE" value="debut sphere" />
   </component>
   <component name="WindowStateProjectService">
     <state x="265" y="-867" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600554795549">
@@ -135,9 +140,17 @@
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
     <state x="678" y="-625" key="Github.ShareDialog/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600554642382" />
-    <state x="401" y="-789" key="Vcs.Push.Dialog.v2" timestamp="1600555219244">
+    <state x="225" y="-890" key="MergeDialog" timestamp="1600557352402">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
-    <state x="401" y="-789" key="Vcs.Push.Dialog.v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600555219244" />
+    <state x="225" y="-890" key="MergeDialog/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600557352402" />
+    <state x="442" y="-760" key="MultipleFileMergeDialog" timestamp="1600557352472">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="442" y="-760" key="MultipleFileMergeDialog/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600557352472" />
+    <state x="401" y="-789" key="Vcs.Push.Dialog.v2" timestamp="1600556976441">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="401" y="-789" key="Vcs.Push.Dialog.v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600556976441" />
   </component>
 </project>
