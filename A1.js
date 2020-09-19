@@ -1,4 +1,4 @@
-// Test GIt!!!!!!!!!!!!!!!
+// Test GIt!!!!!!!!!!
 THREE.Object3D.prototype.setMatrix = function(a) {
   this.matrix = a;
   this.matrix.decompose(this.position, this.quaternion, this.scale);
