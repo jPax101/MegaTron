@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16c7fe57-cdfa-49b0-b1d6-b6dd0333f26b" name="Default Changelist" comment="Les 2 Bras + 2 Avant Bras qui bouge en plus!!">
+    <list default="true" id="16c7fe57-cdfa-49b0-b1d6-b6dd0333f26b" name="Default Changelist" comment="Les 2 bras sont +- fini. il bouge bien et tous, peut-etre une bonne idee de mettre un max d&lt;angle pour pas que ca fasse des choses weird.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/A1.js" beforeDir="false" afterPath="$PROJECT_DIR$/A1.js" afterDir="false" />
     </list>
@@ -79,7 +79,7 @@
       <updated>1600554107461</updated>
       <workItem from="1600554108502" duration="250000" />
       <workItem from="1600554454490" duration="6794000" />
-      <workItem from="1600571785163" duration="12370000" />
+      <workItem from="1600571785163" duration="14141000" />
     </task>
     <task id="LOCAL-00001" summary="Commit Test">
       <created>1600554212714</created>
@@ -151,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600575411791</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Les 2 bras sont +- fini. il bouge bien et tous, peut-etre une bonne idee de mettre un max d&lt;angle pour pas que ca fasse des choses weird.">
+      <created>1600614688977</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1600614688977</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,7 +194,8 @@
     <MESSAGE value="Perdu" />
     <MESSAGE value="les 2 bras" />
     <MESSAGE value="Les 2 Bras + 2 Avant Bras qui bouge en plus!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Les 2 Bras + 2 Avant Bras qui bouge en plus!!" />
+    <MESSAGE value="Les 2 bras sont +- fini. il bouge bien et tous, peut-etre une bonne idee de mettre un max d&lt;angle pour pas que ca fasse des choses weird." />
+    <option name="LAST_COMMIT_MESSAGE" value="Les 2 bras sont +- fini. il bouge bien et tous, peut-etre une bonne idee de mettre un max d&lt;angle pour pas que ca fasse des choses weird." />
   </component>
   <component name="WindowStateProjectService">
     <state x="265" y="-867" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600557962850">
@@ -210,10 +218,10 @@
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
     <state x="442" y="-760" key="MultipleFileMergeDialog/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600557352472" />
-    <state x="-854" y="-1027" key="Vcs.Push.Dialog.v2" timestamp="1600575417982">
+    <state x="-854" y="-1027" key="Vcs.Push.Dialog.v2" timestamp="1600614696635">
       <screen x="-1080" y="-1508" width="1080" height="1897" />
     </state>
-    <state x="-854" y="-1027" key="Vcs.Push.Dialog.v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@-1080.-1508.1080.1897" timestamp="1600575417982" />
+    <state x="-854" y="-1027" key="Vcs.Push.Dialog.v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@-1080.-1508.1080.1897" timestamp="1600614696635" />
     <state x="401" y="-789" key="Vcs.Push.Dialog.v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600561334120" />
     <state x="631" y="-788" key="VcsDiffUtil.ChangesDialog" timestamp="1600558258554">
       <screen x="0" y="-1057" width="1920" height="1057" />

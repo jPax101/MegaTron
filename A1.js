@@ -156,9 +156,11 @@ class Robot {
     this.armLeftRadius = 0.3;
     this.foreArmRightRadius = 0.3;
     this.foreArmLeftRadius = 0.3;
-    this.feetHeight = 0.3;
-    // Add parameters for parts
-    // TODO
+    this.leftLegHeight = 0.3;
+    this.rightLegHeight = 0.3;
+    this.leftFeetHeight = 0.3;
+    this.righFeetHeight = 0.3;
+
 
     // Animation
     this.walkDirection = new THREE.Vector3( 0, 0, 1 );
@@ -172,7 +174,7 @@ class Robot {
 
   initialTorsoMatrix(){
     var initialTorsoMatrix = idMat4();
-    initialTorsoMatrix = translateMat(initialTorsoMatrix, 0,this.torsoHeight +  (2*this.feetHeight) , 0);
+    initialTorsoMatrix = translateMat(initialTorsoMatrix, 0,this.torsoHeight +  (2*this.leftLegHeight) , 0);
 
     return initialTorsoMatrix;
   }
@@ -184,16 +186,14 @@ class Robot {
     return initialHeadMatrix;
   }
 
-  initialFeetMatrix(){
-    var initialFeetMatrix = idMat4();
-    initialFeetMatrix = rescaleMat(initialFeetMatrix,1.5,.5,.5);
-    initialFeetMatrix = rotateMat(initialFeetMatrix,Math.PI,"z");
-    initialFeetMatrix = rotateMat(initialFeetMatrix,Math.PI/2,"y");
-    initialFeetMatrix = translateMat(initialFeetMatrix, this.torsoRadius/2,-(this.torsoHeight/2.5 + this.feetHeight * 5), 0);
+  initialLeftLegMatrix(){
 
+    var initialLeftLegMatrix = rescaleMat(idMat4(),1.5,.5,.5);
+    initialLeftLegMatrix = rotateMat(initialLeftLegMatrix,Math.PI/2,"z");
+    initialLeftLegMatrix = translateMat(initialLeftLegMatrix,
+        -this.torsoRadius/2,-this.torsoHeight+this.leftLegHeight, 0);
 
-
-    return initialFeetMatrix;
+    return initialLeftLegMatrix;
   }
 
   initialArmRightMatrix(){
@@ -267,8 +267,8 @@ class Robot {
     this.leftForeArm = new THREE.Mesh(leftForeArmGeometry, this.material);
 
     // Feet
-    var feetGeometry = new THREE.SphereGeometry(this.feetHeight);
-    this.feet = new THREE.Mesh(feetGeometry, this.material);
+    var leftLegGeometry = new THREE.SphereGeometry(this.foreArmLeftRadius,8,6,0,Math.PI * 2,0,Math.PI);
+    this.leftLeg = new THREE.Mesh(leftLegGeometry, this.material);
 
 
     // Add parts
@@ -309,11 +309,11 @@ class Robot {
     var matrixRightArm = multMat(this.torsoInitialMatrix, this.armRightInitialMatrix);
     this.armRight.setMatrix(matrixRightArm);
 
-    // feet transormation
-    this.feetInitialMatrix = this.initialFeetMatrix();
-    this.feetMatrix = idMat4();
-    var matrixFeet = multMat(this.torsoInitialMatrix, this.feetInitialMatrix);
-    this.feet.setMatrix(matrixFeet);
+    // Left Leg transormation
+    this.leftLegInitialMatrix = this.initialLeftLegMatrix();
+    this.leftLegMatrix = idMat4();
+    var matrixLeftLeg = multMat(this.torsoInitialMatrix, this.leftLegInitialMatrix);
+    this.leftLeg.setMatrix(matrixLeftLeg);
 
     // Add transformations
     // TODO
@@ -322,7 +322,7 @@ class Robot {
 	scene.add(this.torso);
     scene.add(this.head);
     scene.add(this.armRight);
-    scene.add(this.feet);
+    scene.add(this.leftLeg);
     scene.add(this.armLeft);
     scene.add(this.rightForeArm);
     scene.add(this.leftForeArm);
@@ -344,9 +344,9 @@ class Robot {
     var matrixRotateHead = multMat(matrixTorse, matrixHead);
     this.head.setMatrix(matrixRotateHead);
 
-    var matrixFeet = multMat(this.feetMatrix, this.feetInitialMatrix);
-    var matrixRotateFeet = multMat(matrixTorse,matrixFeet);
-    this.feet.setMatrix(matrixRotateFeet);
+    var leftLegMatrix = multMat(this.leftLegMatrix, this.leftLegInitialMatrix);
+    leftLegMatrix = multMat(matrixTorse,leftLegMatrix);
+    this.leftLeg.setMatrix(leftLegMatrix);
 
     var matrixArmRight = multMat(this.armRightMatrix, this.armRightInitialMatrix);
     var matrixRotArm = multMat(matrixTorse, matrixArmRight);
@@ -380,9 +380,9 @@ class Robot {
     var matrixTranslateHead = multMat(matrixTorso, matrixHead);
     this.head.setMatrix(matrixTranslateHead);
 
-    var matrixFeet = multMat(this.feetMatrix, this.feetInitialMatrix);
-    var matrixTranslateFeet = multMat(matrixTorso, matrixFeet);
-    this.feet.setMatrix(matrixTranslateFeet);
+    var leftLegMatrix = multMat(this.leftLegMatrix, this.leftLegInitialMatrix);
+    leftLegMatrix = multMat(matrixTorso, leftLegMatrix);
+    this.leftLeg.setMatrix(leftLegMatrix);
 
     var matrixArmRight = multMat(this.armRightMatrix, this.armRightInitialMatrix);
     var matrixTransArm = multMat(matrixTorso, matrixArmRight);
