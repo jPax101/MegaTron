@@ -50,14 +50,29 @@ scene.add(floor);
 
 // TRANSFORMATIONS
 
+/**
+ * multiply 2 matrix together
+ * @param m1
+ * @param m2
+ * @returns multiplied matrices
+ */
 function multMat(m1, m2){
-  return new THREE.Matrix4().multiplyMatrices(m1, m2);
+  return idMat4().multiplyMatrices(m1, m2);
 }
 
+/**
+ * matrix inversion
+ * @param m
+ * @returns inverted matrix
+ */
 function inverseMat(m){
-  return new THREE.Matrix4().getInverse(m, true);
+  return idMat4().getInverse(m, true);
 }
 
+/**
+ * Identity matrix
+ * @returns matrix of identity 4
+ */
 function idMat4(){
 
   return new THREE.Matrix4().set(1,0,0,0,
@@ -68,6 +83,14 @@ function idMat4(){
 
 }
 
+/**
+ * Matrix translation
+ * @param matrix   matrix to translate
+ * @param x       x movement
+ * @param y       y movement
+ * @param z       z movement
+ * @returns {*}   changed matrix
+ */
 function translateMat(matrix, x, y, z){
   // Apply translation [x, y, z] to @matrix
   // matrix: THREE.Matrix3
@@ -81,6 +104,13 @@ function translateMat(matrix, x, y, z){
 
 }
 
+/**
+ * Matrix rotation fucntion
+ * @param matrix  matrix to change
+ * @param angle     angle of rotation
+ * @param axis    which axis of rotation
+ * @returns {*}   rotated Matrix
+ */
 function rotateMat(matrix, angle, axis){
   // Apply rotation by @angle with respect to @axis to @matrix
   // matrix: THREE.Matrix3
@@ -108,6 +138,13 @@ function rotateMat(matrix, angle, axis){
 
 }
 
+/**
+ * Rotate vectors
+ * @param v   vector rotate
+ * @param angle angle of rotation
+ * @param axis  rotation-axis
+ * @returns {*} returns the rotated vector
+ */
 function rotateVec3(v, angle, axis){
   // Apply rotation by @angle with respect to @axis to vector @v
   //   // v: THREE.Vector3
@@ -146,6 +183,9 @@ function rescaleMat(matrix, x, y, z){
 
 }
 
+/**
+ * Our main Robot class
+ */
 class Robot {
   constructor() {
     // Geometry
@@ -307,8 +347,7 @@ class Robot {
     this.rightFeet = new THREE.Mesh(leftFeetGeometry, this.material);
 
 
-    // Add parts
-    // TODO
+    // *** TRANSFORMATION ***
 
     // Torso transformation
     this.torsoInitialMatrix = this.initialTorsoMatrix();
@@ -387,6 +426,10 @@ class Robot {
     // TODO
   }
 
+  /**
+   * Rotation of Torso, everytime you add a bodypart, need to add it to fonction
+   * @param angle radian - rotation on y axis
+   */
   rotateTorso(angle){
     var torsoMatrix = this.torsoMatrix;
 
@@ -440,6 +483,10 @@ class Robot {
     this.walkDirection = rotateVec3(this.walkDirection, angle, "y");
   }
 
+  /**
+   * Moves torso forward and backwards on xz plane
+   * @param speed
+   */
   moveTorso(speed){
 
     this.torsoMatrix = translateMat(this.torsoMatrix, speed * this.walkDirection.x, speed * this.walkDirection.y, speed * this.walkDirection.z);
@@ -487,10 +534,13 @@ class Robot {
     matrixForeArmright = multMat(matrixTorso, matrixForeArmright);
     this.rightForeArm.setMatrix(matrixForeArmright);
 
-
   }
 
 
+  /**
+   * Rotate head independent of rest of torso
+   * @param angle  y-axis rotation
+   */
   rotateHead(angle){
     var headMatrix = this.headMatrix;
 
@@ -505,6 +555,11 @@ class Robot {
   }
 
 
+  /**
+   * Rotate fore arms independent of rest of arms
+   * they rotate symmetrically
+   * @param angle   x-axis rotation
+   */
   rotateForeArm(angle){
     var rightForeArmTemp = this.rightForeArmMatrix;
     var leftForeArmTemp = this.leftForeArmMatrix;
@@ -527,6 +582,11 @@ class Robot {
     this.leftForeArm.setMatrix(matrixLeft);
   }
 
+  /**
+   * Rotate arms independent of torso, forearms will follow arms
+   * @param axis axis of rotation
+   * @param angle x,z Axis-rotation
+   */
   rotateArm(axis, angle){
     var rightArmTemp = this.armRightMatrix;
     var leftArmTemp = this.armLeftMatrix;
@@ -579,8 +639,6 @@ class Robot {
   }
 
 
-  // Add methods for other parts
-  // TODO
 }
 
 var robot = new Robot();

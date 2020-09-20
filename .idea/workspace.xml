@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16c7fe57-cdfa-49b0-b1d6-b6dd0333f26b" name="Default Changelist" comment="Les 2 bras sont +- fini. il bouge bien et tous, peut-etre une bonne idee de mettre un max d&lt;angle pour pas que ca fasse des choses weird.">
+    <list default="true" id="16c7fe57-cdfa-49b0-b1d6-b6dd0333f26b" name="Default Changelist" comment="Fait --&#10;Bras fonctionne&#10;rotation membre bras&#10;Jambe suive le torse&#10;&#10;besoin --&#10;besoin de mettre des bounds sur les bras&#10;jambe besoin animation&#10;besoin de faire animation de mouvement avec le bonhomme.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/A1.js" beforeDir="false" afterPath="$PROJECT_DIR$/A1.js" afterDir="false" />
     </list>
@@ -79,7 +79,7 @@
       <updated>1600554107461</updated>
       <workItem from="1600554108502" duration="250000" />
       <workItem from="1600554454490" duration="6794000" />
-      <workItem from="1600571785163" duration="18072000" />
+      <workItem from="1600571785163" duration="19129000" />
     </task>
     <task id="LOCAL-00001" summary="Commit Test">
       <created>1600554212714</created>
@@ -172,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600618415517</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fait --&#10;Bras fonctionne&#10;rotation membre bras&#10;Jambe suive le torse&#10;&#10;besoin --&#10;besoin de mettre des bounds sur les bras&#10;jambe besoin animation&#10;besoin de faire animation de mouvement avec le bonhomme.">
+      <created>1600620559954</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1600620559954</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,7 +216,8 @@
     <MESSAGE value="les 2 bras" />
     <MESSAGE value="Les 2 Bras + 2 Avant Bras qui bouge en plus!!" />
     <MESSAGE value="Les 2 bras sont +- fini. il bouge bien et tous, peut-etre une bonne idee de mettre un max d&lt;angle pour pas que ca fasse des choses weird." />
-    <option name="LAST_COMMIT_MESSAGE" value="Les 2 bras sont +- fini. il bouge bien et tous, peut-etre une bonne idee de mettre un max d&lt;angle pour pas que ca fasse des choses weird." />
+    <MESSAGE value="Fait --&#10;Bras fonctionne&#10;rotation membre bras&#10;Jambe suive le torse&#10;&#10;besoin --&#10;besoin de mettre des bounds sur les bras&#10;jambe besoin animation&#10;besoin de faire animation de mouvement avec le bonhomme." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fait --&#10;Bras fonctionne&#10;rotation membre bras&#10;Jambe suive le torse&#10;&#10;besoin --&#10;besoin de mettre des bounds sur les bras&#10;jambe besoin animation&#10;besoin de faire animation de mouvement avec le bonhomme." />
   </component>
   <component name="WindowStateProjectService">
     <state x="265" y="-867" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600557962850">
@@ -232,9 +240,10 @@
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
     <state x="442" y="-760" key="MultipleFileMergeDialog/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600557352472" />
-    <state x="-854" y="-1027" key="Vcs.Push.Dialog.v2" timestamp="1600618422972">
-      <screen x="-1080" y="-1508" width="1080" height="1897" />
+    <state x="-854" y="-1044" key="Vcs.Push.Dialog.v2" timestamp="1600620564464">
+      <screen x="-1080" y="-1531" width="1080" height="1920" />
     </state>
+    <state x="-854" y="-1044" key="Vcs.Push.Dialog.v2/0.0.1440.900/0.-1080.1920.1080/-1080.-1531.1080.1920@-1080.-1531.1080.1920" timestamp="1600620564464" />
     <state x="-854" y="-1027" key="Vcs.Push.Dialog.v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@-1080.-1508.1080.1897" timestamp="1600618422972" />
     <state x="401" y="-789" key="Vcs.Push.Dialog.v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600561334120" />
     <state x="631" y="-788" key="VcsDiffUtil.ChangesDialog" timestamp="1600558258554">
