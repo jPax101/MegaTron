@@ -156,7 +156,7 @@ class Robot {
     this.armLeftRadius = 0.3;
     this.foreArmRightRadius = 0.3;
     this.foreArmLeftRadius = 0.3;
-    this.feetHeight = 0.5;
+    this.feetHeight = 0.3;
     // Add parameters for parts
     // TODO
 
@@ -172,7 +172,7 @@ class Robot {
 
   initialTorsoMatrix(){
     var initialTorsoMatrix = idMat4();
-    initialTorsoMatrix = translateMat(initialTorsoMatrix, 0,this.torsoHeight/2 + this.feetHeight *1.6, 0);
+    initialTorsoMatrix = translateMat(initialTorsoMatrix, 0,this.torsoHeight/2 + this.feetHeight * 5, 0);
 
     return initialTorsoMatrix;
   }
@@ -186,10 +186,11 @@ class Robot {
 
   initialFeetMatrix(){
     var initialFeetMatrix = idMat4();
-    initialFeetMatrix = rotateMat(initialFeetMatrix,1.5708,"z");
-    initialFeetMatrix = rescaleMat(initialFeetMatrix,3,.3,.4);
-    initialFeetMatrix = translateMat(initialFeetMatrix, 0,-(this.torsoHeight/2 + this.feetHeight), 0);
-    initialFeetMatrix = translateMat(initialFeetMatrix,5,-2,0);
+    initialFeetMatrix = rescaleMat(initialFeetMatrix,1.5,.5,.5);
+    initialFeetMatrix = rotateMat(initialFeetMatrix,Math.PI,"z");
+    initialFeetMatrix = rotateMat(initialFeetMatrix,Math.PI/2,"y");
+    initialFeetMatrix = translateMat(initialFeetMatrix, this.torsoRadius/2,-(this.torsoHeight/2.5 + this.feetHeight * 5), 0);
+
 
 
     return initialFeetMatrix;
