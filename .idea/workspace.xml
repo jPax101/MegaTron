@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16c7fe57-cdfa-49b0-b1d6-b6dd0333f26b" name="Default Changelist" comment="Perdu">
+    <list default="true" id="16c7fe57-cdfa-49b0-b1d6-b6dd0333f26b" name="Default Changelist" comment="les 2 bras">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/A1.js" beforeDir="false" afterPath="$PROJECT_DIR$/A1.js" afterDir="false" />
     </list>
@@ -78,7 +78,8 @@
       <option name="presentableId" value="Default" />
       <updated>1600554107461</updated>
       <workItem from="1600554108502" duration="250000" />
-      <workItem from="1600554454490" duration="6700000" />
+      <workItem from="1600554454490" duration="6794000" />
+      <workItem from="1600571785163" duration="2617000" />
     </task>
     <task id="LOCAL-00001" summary="Commit Test">
       <created>1600554212714</created>
@@ -129,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600558070877</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="les 2 bras">
+      <created>1600561325781</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1600561325781</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +171,8 @@
     <MESSAGE value="Changement matrice ID" />
     <MESSAGE value="debut sphere" />
     <MESSAGE value="Perdu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Perdu" />
+    <MESSAGE value="les 2 bras" />
+    <option name="LAST_COMMIT_MESSAGE" value="les 2 bras" />
   </component>
   <component name="WindowStateProjectService">
     <state x="265" y="-867" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600557962850">
@@ -186,10 +195,10 @@
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
     <state x="442" y="-760" key="MultipleFileMergeDialog/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600557352472" />
-    <state x="401" y="-789" key="Vcs.Push.Dialog.v2" timestamp="1600558088992">
+    <state x="401" y="-789" key="Vcs.Push.Dialog.v2" timestamp="1600561334120">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
-    <state x="401" y="-789" key="Vcs.Push.Dialog.v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600558088992" />
+    <state x="401" y="-789" key="Vcs.Push.Dialog.v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600561334120" />
     <state x="631" y="-788" key="VcsDiffUtil.ChangesDialog" timestamp="1600558258554">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
