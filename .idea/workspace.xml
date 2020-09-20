@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16c7fe57-cdfa-49b0-b1d6-b6dd0333f26b" name="Default Changelist" comment="debut sphere">
+    <list default="true" id="16c7fe57-cdfa-49b0-b1d6-b6dd0333f26b" name="Default Changelist" comment="Perdu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/A1.js" beforeDir="false" afterPath="$PROJECT_DIR$/A1.js" afterDir="false" />
     </list>
@@ -29,6 +29,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1hkTUlOcC6oOOqVTXQVOKwZ6O83" />
@@ -73,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1600554107461</updated>
       <workItem from="1600554108502" duration="250000" />
-      <workItem from="1600554454490" duration="3449000" />
+      <workItem from="1600554454490" duration="6700000" />
     </task>
     <task id="LOCAL-00001" summary="Commit Test">
       <created>1600554212714</created>
@@ -117,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600557385271</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Perdu">
+      <created>1600558070877</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1600558070877</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,17 +162,18 @@
     <MESSAGE value="Commit Test" />
     <MESSAGE value="Changement matrice ID" />
     <MESSAGE value="debut sphere" />
-    <option name="LAST_COMMIT_MESSAGE" value="debut sphere" />
+    <MESSAGE value="Perdu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Perdu" />
   </component>
   <component name="WindowStateProjectService">
     <state x="265" y="-867" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600557962850">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
     <state x="265" y="-867" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600557962850" />
-    <state x="-1080" y="-1092" width="1080" height="857" key="DiffContextDialog" timestamp="1600558009052">
+    <state x="-1080" y="-1092" width="1080" height="857" key="DiffContextDialog" timestamp="1600558341297">
       <screen x="-1080" y="-1508" width="1080" height="1897" />
     </state>
-    <state x="-1080" y="-1092" width="1080" height="857" key="DiffContextDialog/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600558009052" />
+    <state x="-1080" y="-1092" width="1080" height="857" key="DiffContextDialog/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600558341297" />
     <state x="678" y="-625" key="Github.ShareDialog" timestamp="1600554642382">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
@@ -173,13 +186,17 @@
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
     <state x="442" y="-760" key="MultipleFileMergeDialog/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600557352472" />
-    <state x="401" y="-789" key="Vcs.Push.Dialog.v2" timestamp="1600557702251">
+    <state x="401" y="-789" key="Vcs.Push.Dialog.v2" timestamp="1600558088992">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
-    <state x="401" y="-789" key="Vcs.Push.Dialog.v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600557702251" />
-    <state x="614" y="-608" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600557679952">
+    <state x="401" y="-789" key="Vcs.Push.Dialog.v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600558088992" />
+    <state x="631" y="-788" key="VcsDiffUtil.ChangesDialog" timestamp="1600558258554">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
-    <state x="614" y="-608" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600557679952" />
+    <state x="631" y="-788" key="VcsDiffUtil.ChangesDialog/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600558258554" />
+    <state x="614" y="-608" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600558603560">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="614" y="-608" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600558603560" />
   </component>
 </project>
