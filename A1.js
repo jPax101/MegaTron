@@ -193,6 +193,8 @@ class Robot {
   foreArmAngleLeft = 0;
   foreArmAngleRight = 0;
   legAngle = 0;
+  leftFeetAngle = 0;
+  rightFeetAngle = 0;
   leftUp = true;
   walkSpeed = 1;    //Default = 1
 
@@ -208,6 +210,7 @@ class Robot {
     this.foreArmLeftRadius = 0.3;
     this.legHeight = 0.25;
     this.feetHeight = 0.25;
+    this.shoeHeight = .4
 
 
 
@@ -320,6 +323,16 @@ class Robot {
     return initialLeftForeArmMatrix;
   }
 
+  initialLeftShoeMatrix(){
+    return translateMat(idMat4(), -this.torsoRadius/2,
+        -(this.torsoHeight +  (4*this.legHeight)) + this.legHeight/2,this.legHeight/2 );
+  }
+
+  initialrightShoeMatrix(){
+    return translateMat(idMat4(), this.torsoRadius/2,
+        -(this.torsoHeight +  (4*this.legHeight)) + this.legHeight/2,this.legHeight/2 );
+  }
+
 
   initialize() {
     // Torso
@@ -330,31 +343,30 @@ class Robot {
     var headGeometry = new THREE.SphereGeometry(this.headRadius,8,6,0,Math.PI * 2,0,Math.PI)
     this.head = new THREE.Mesh(headGeometry, this.material);
 
-    //right arm
-    var armRightGeometry = new THREE.SphereGeometry(this.armRightRadius,8,6,0,Math.PI * 2,0,Math.PI);
-    this.armRight = new THREE.Mesh(armRightGeometry, this.material);
+    // arms
+    var armGeometry = new THREE.SphereGeometry(this.armRightRadius,8,6,0,Math.PI * 2,0,Math.PI);
+    this.armRight = new THREE.Mesh(armGeometry, this.material);
+    this.armLeft = new THREE.Mesh(armGeometry, this.material);
 
-    //right ForeArm
-    var rightForeArmGeometry = new THREE.SphereGeometry(this.foreArmRightRadius,8,6,0,Math.PI * 2,0,Math.PI);
-    this.rightForeArm = new THREE.Mesh(rightForeArmGeometry, this.material);
+    // ForeArms
+    var foreArmGerometry = new THREE.SphereGeometry(this.foreArmRightRadius,8,6,0,Math.PI * 2,0,Math.PI);
+    this.rightForeArm = new THREE.Mesh(foreArmGerometry, this.material);
+    this.leftForeArm = new THREE.Mesh(foreArmGerometry, this.material);
 
-    //left arm
-    var armLeftGeometry = new THREE.SphereGeometry(this.armLeftRadius,8,6,0,Math.PI * 2,0,Math.PI);
-    this.armLeft = new THREE.Mesh(armLeftGeometry, this.material);
+    //  Legs
+    var legGeometry = new THREE.SphereGeometry(this.legHeight,8,6,0,Math.PI * 2,0,Math.PI);
+    this.leftLeg = new THREE.Mesh(legGeometry, this.material);
+    this.rightLeg = new THREE.Mesh(legGeometry, this.material);
 
-    //left foreArm
-    var leftForeArmGeometry = new THREE.SphereGeometry(this.foreArmLeftRadius,8,6,0,Math.PI * 2,0,Math.PI);
-    this.leftForeArm = new THREE.Mesh(leftForeArmGeometry, this.material);
+    //  Feet
+    var feetGeometry = new THREE.SphereGeometry(this.feetHeight,8,6,0,Math.PI * 2,0,Math.PI);
+    this.leftFeet = new THREE.Mesh(feetGeometry, this.material);
+    this.rightFeet = new THREE.Mesh(feetGeometry, this.material);
 
-    // Left Leg
-    var leftLegGeometry = new THREE.SphereGeometry(this.legHeight,8,6,0,Math.PI * 2,0,Math.PI);
-    this.leftLeg = new THREE.Mesh(leftLegGeometry, this.material);
-    this.rightLeg = new THREE.Mesh(leftLegGeometry, this.material);
-
-    // Left Feet
-    var leftFeetGeometry = new THREE.SphereGeometry(this.feetHeight,8,6,0,Math.PI * 2,0,Math.PI);
-    this.leftFeet = new THREE.Mesh(leftFeetGeometry, this.material);
-    this.rightFeet = new THREE.Mesh(leftFeetGeometry, this.material);
+    //shoes
+    var shoeGeometry = new THREE.BoxGeometry(this.shoeHeight,this.shoeHeight,2*this.shoeHeight,)
+    this.leftShoe = new THREE.Mesh(shoeGeometry, this.material)
+    this.rightShoe = new THREE.Mesh(shoeGeometry, this.material)
 
 
     // *** TRANSFORMATION ***
@@ -418,6 +430,16 @@ class Robot {
     var matrixRightFeet = multMat(this.torsoInitialMatrix, this.rightFeetInitialMatrix);
     this.rightFeet.setMatrix(matrixRightFeet);
 
+    //shoes
+    this.leftShoeInitMatrix = this.initialLeftShoeMatrix();
+    this.leftShoeMatrix = idMat4();
+    var matrixLeftShoe = multMat(this.torsoInitialMatrix, this.leftShoeInitMatrix);
+    this.leftShoe.setMatrix(matrixLeftShoe)
+
+    this.rightShoeInitMatrix = this.initialrightShoeMatrix();
+    this.rightShoeMatrix = idMat4();
+    var matrixRightShoe = multMat(this.torsoInitialMatrix, this.rightShoeInitMatrix);
+    this.rightShoe.setMatrix(matrixRightShoe)
 
 	// Add robot to scene
 	scene.add(this.torso);
@@ -431,12 +453,17 @@ class Robot {
     scene.add(this.rightLeg);
     scene.add(this.rightFeet);
 
+    //TODO - Finir les pieds
+    // scene.add(this.leftShoe);
+    // scene.add(this.rightShoe);
+
   }
 
 
 
   /**
    * Rotation of Torso, everytime you add a bodypart, need to add it to fonction
+   * @param axis axis of rotation
    * @param angle radian - rotation on y axis
    */
   rotateTorso(axis, angle){
@@ -571,6 +598,7 @@ class Robot {
   /**
    * Rotate fore arms independent of rest of arms
    * they rotate symmetrically
+   * @param foreArm which forearm to transform
    * @param angle   x-axis rotation
    */
   rotateForeArm(foreArm, angle){
@@ -710,7 +738,7 @@ class Robot {
     }
   }
 
-  rotateFeet(feet, angle){
+  rotateFeet(feet,  angle){
     var leftTemp = this.leftFeetMatrix;
     var rightTemp = this.rightFeetMatrix;
 
@@ -727,6 +755,7 @@ class Robot {
       feetLegMat = multMat(this.torsoInitialMatrix, feetLegMat);
       this.leftFeet.setMatrix(feetLegMat);
 
+
     } else {
 
       this.rightFeetMatrix = translateMat(idMat4(), 0,this.torsoHeight ,0 );
@@ -741,6 +770,9 @@ class Robot {
       this.rightFeet.setMatrix(rightFeetMat);
     }
   }
+
+
+
 }
 
 var robot = new Robot();
@@ -794,37 +826,59 @@ function checkKeyboard() {
   if (keyboard.pressed("w")){
     switch (components[selectedRobotComponent]) {
       case "Torso":
+
+
         //Move Torso
-        robot.moveTorso(Math.abs(robot.walkSpeed/15));
+        robot.moveTorso(Math.abs(robot.walkSpeed/35));
 
         // Leg Movement
-        if (robot.legAngle >= .5 && robot.leftUp){
+        if (robot.legAngle >= .55 && robot.leftUp){
 
           robot.walkSpeed = -robot.walkSpeed;
           robot.leftUp = false;
-        } else if (robot.legAngle <=-(.55) && !robot.leftUp){
+        } else if (robot.legAngle <=-.55 && !robot.leftUp){
           robot.walkSpeed = -robot.walkSpeed;
           robot.leftUp = true;
         }
 
-
+        // leg Rotation
         robot.rotateLegs("left", robot.walkSpeed/30);
         robot.rotateLegs("right", robot.walkSpeed/30);
         robot.legAngle += robot.walkSpeed/30;
 
-        robot.rotateArm("left", "x", robot.walkSpeed/25);
-        robot.rotateArm("right","x",  -robot.walkSpeed/25);
+
+        // y-axis for hip movement
+        robot.rotateTorso("y",robot.walkSpeed/90);
 
 
+        //knee movement
+        if (!(robot.leftFeetAngle <=0 && robot.walkSpeed <0))  {
+          robot.rotateFeet("left",robot.walkSpeed/80)
+          robot.leftFeetAngle += (robot.walkSpeed/80)
+
+        }
+        if (!(robot.leftFeetAngle <=0 && robot.walkSpeed <0)) {
+          robot.rotateFeet("right",robot.walkSpeed/80)
+
+          robot.rightFeetAngle += (robot.walkSpeed/80)
+        }
+
+
+
+        //Arms
+        robot.rotateArm("left", "x", robot.walkSpeed/50);
+        robot.rotateArm("right","x",  -robot.walkSpeed/50);
+
+
+        // foreArms
         if (!(robot.foreArmAngleRight <= 0 && robot.walkSpeed < 0)){
-          robot.rotateForeArm("right", robot.walkSpeed/20)
-          robot.foreArmAngleRight += (robot.walkSpeed/25)
+          robot.rotateForeArm("right", robot.walkSpeed/50)
+          robot.foreArmAngleRight += (robot.walkSpeed/50)
         }
         if (!(robot.foreArmAngleLeft <= 0 && robot.walkSpeed < 0)){
-          robot.rotateForeArm("left",robot.walkSpeed/25)
-          robot.foreArmAngleLeft += (robot.walkSpeed/25)
+          robot.rotateForeArm("left",robot.walkSpeed/50)
+          robot.foreArmAngleLeft += (robot.walkSpeed/50)
         }
-        robot.rotateTorso("z",robot.walkSpeed/500);
 
 
         break;
@@ -832,12 +886,14 @@ function checkKeyboard() {
       case "Head":
         break;
       case "Fore Arms" :
-        if (robot.foreArmAngle >= .22){
+        if (robot.foreArmAngleLeft >= 2.2){
           break;
         }
-        robot.rotateForeArm("left", robot.walkSpeed/25);
-        robot.rotateForeArm("right", robot.walkSpeed/25);
-        robot.foreArmAngle +=.01;
+        robot.rotateForeArm("left", .1);
+        robot.rotateForeArm("right", .1);
+        robot.foreArmAngleLeft +=.1;
+        robot.foreArmAngleRight +=.1;
+
         break;
       case "Arms" :
 
@@ -849,11 +905,19 @@ function checkKeyboard() {
         robot.armAngleX += .1;
         break;
       case "legs":
+
+        if (robot.legAngle >= .8 ){
+          break;
+        }
+
         robot.rotateLegs("left", .1);
         robot.rotateLegs("right", .1);
+        robot.legAngle += .1;
         break;
 
       case "feet":
+
+        //TODO bounds
         robot.rotateFeet("left",0.1)
         robot.rotateFeet("right",0.1)
         break;
@@ -867,15 +931,15 @@ function checkKeyboard() {
 
 
       case "Torso":
-        robot.moveTorso(-Math.abs(robot.walkSpeed/15));
+        robot.moveTorso(-Math.abs(robot.walkSpeed/35));
 
 
 
-        // Leg Movement
-        if (robot.legAngle >= .5 && robot.leftUp){
+        // Leg Movement  smaller angles here because we walk backwards diffrently
+        if (robot.legAngle >= .3 && robot.leftUp){
           robot.walkSpeed = -robot.walkSpeed;
           robot.leftUp = false;
-        } else if (robot.legAngle <=-(.6) && !robot.leftUp){
+        } else if (robot.legAngle <=-.3 && !robot.leftUp){
           robot.walkSpeed = -robot.walkSpeed;
           robot.leftUp = true;
         }
@@ -888,7 +952,7 @@ function checkKeyboard() {
         robot.rotateArm("right","x",  -robot.walkSpeed/25);
 
 
-        robot.rotateTorso("z",robot.walkSpeed/500);
+        robot.rotateTorso("y",robot.walkSpeed/200);
 
         break;
 
@@ -898,12 +962,13 @@ function checkKeyboard() {
 
 
       case "Fore Arms" :
-        if (robot.foreArmAngle <= 0){
+        if (robot.foreArmAngleLeft <= 0){
           break;
         }
-        robot.rotateForeArm("left",0.1);
-        robot.rotateForeArm("right",0.1);
-        robot.foreArmAngle -=.01;
+        robot.rotateForeArm("left",-0.1);
+        robot.rotateForeArm("right",-0.1);
+        robot.foreArmAngleLeft -=.1;
+        robot.foreArmAngleRight -=.1;
         break;
 
 
@@ -917,8 +982,12 @@ function checkKeyboard() {
       break;
 
       case "legs":
+        if (robot.legAngle <= -.8 ){
+          break;
+        }
         robot.rotateLegs("left", -.1);
         robot.rotateLegs("right", -.1);
+        robot.legAngle -=.1;
         break;
 
       case "feet":

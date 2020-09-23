@@ -81,7 +81,7 @@
       <workItem from="1600554454490" duration="6794000" />
       <workItem from="1600571785163" duration="19690000" />
       <workItem from="1600696704787" duration="8149000" />
-      <workItem from="1600775233086" duration="12100000" />
+      <workItem from="1600775233086" duration="19410000" />
     </task>
     <task id="LOCAL-00001" summary="Commit Test">
       <created>1600554212714</created>
@@ -202,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600780935145</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Boom!! y marche, reste a le faire pivote pour lui donner un look plus reel et lui faire plier les jambes en marchant">
+      <created>1600825075407</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1600825075407</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,20 +273,20 @@
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
     <state x="442" y="-760" key="MultipleFileMergeDialog/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600557352472" />
-    <state x="-854" y="-1027" key="Vcs.Push.Dialog.v2" timestamp="1600780937256">
+    <state x="-854" y="-1027" key="Vcs.Push.Dialog.v2" timestamp="1600825077866">
       <screen x="-1080" y="-1508" width="1080" height="1897" />
     </state>
     <state x="-854" y="-1044" key="Vcs.Push.Dialog.v2/0.0.1440.900/0.-1080.1920.1080/-1080.-1531.1080.1920@-1080.-1531.1080.1920" timestamp="1600621519968" />
-    <state x="-854" y="-1027" key="Vcs.Push.Dialog.v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@-1080.-1508.1080.1897" timestamp="1600780937256" />
+    <state x="-854" y="-1027" key="Vcs.Push.Dialog.v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@-1080.-1508.1080.1897" timestamp="1600825077866" />
     <state x="401" y="-789" key="Vcs.Push.Dialog.v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600561334120" />
     <state x="631" y="-788" key="VcsDiffUtil.ChangesDialog" timestamp="1600558258554">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
     <state x="631" y="-788" key="VcsDiffUtil.ChangesDialog/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600558258554" />
-    <state x="-735" y="-702" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600618409355">
+    <state x="-735" y="-702" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600861246379">
       <screen x="-1080" y="-1508" width="1080" height="1897" />
     </state>
-    <state x="-735" y="-702" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@-1080.-1508.1080.1897" timestamp="1600618409355" />
+    <state x="-735" y="-702" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@-1080.-1508.1080.1897" timestamp="1600861246378" />
     <state x="614" y="-608" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600558603560" />
     <state x="-875" y="-1063" width="670" height="676" key="search.everywhere.popup" timestamp="1600778374206">
       <screen x="-1080" y="-1508" width="1080" height="1897" />
