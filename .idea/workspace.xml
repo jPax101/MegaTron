@@ -36,6 +36,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/A1.js" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1hkTUlOcC6oOOqVTXQVOKwZ6O83" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -82,6 +85,7 @@
       <workItem from="1600571785163" duration="19690000" />
       <workItem from="1600696704787" duration="8149000" />
       <workItem from="1600775233086" duration="19410000" />
+      <workItem from="1600981078643" duration="5466000" />
     </task>
     <task id="LOCAL-00001" summary="Commit Test">
       <created>1600554212714</created>
@@ -283,9 +287,10 @@
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
     <state x="631" y="-788" key="VcsDiffUtil.ChangesDialog/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600558258554" />
-    <state x="-735" y="-702" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600861246379">
-      <screen x="-1080" y="-1508" width="1080" height="1897" />
+    <state x="613" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600981476178">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="613" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1600981476178" />
     <state x="-735" y="-702" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@-1080.-1508.1080.1897" timestamp="1600861246378" />
     <state x="614" y="-608" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600558603560" />
     <state x="-875" y="-1063" width="670" height="676" key="search.everywhere.popup" timestamp="1600778374206">
