@@ -196,7 +196,7 @@ class Robot {
   leftFeetAngle = 0;
   rightFeetAngle = 0;
   leftUp = true;
-  walkSpeed = .1;
+  walkSpeed = .05;
   floorVal = 0;
   floorVal2 = 0;
 
@@ -918,14 +918,17 @@ function checkKeyboard() {
 
 
         //Move Torso
-        robot.moveTorso(null,Math.abs(this.robot.walkSpeed));
+        robot.moveTorso(null,this.robot.walkSpeed);
 
 
 
-        let walk = robot.walkSpeed * Math.sign(Math.sin(robot.floorVal));
+        let walk = robot.walkSpeed * Math.sign(Math.sin(robot.floorVal + Math.PI/2));
+        let float = -.02 * Math.sign(Math.sin(robot.floorVal2));
+
+        robot.moveTorso("y", float);
 
 
-        if (robot.leftUp){
+
           robot.rotateLegs("left",  walk);
           robot.rotateLegs("right",  walk);
 
@@ -941,67 +944,11 @@ function checkKeyboard() {
           robot.rotateForeArm("right", walk/2)
 
 
-        }
 
-        if (!robot.leftUp){
-
-          //Legs
-          robot.rotateLegs("left", -walk);
-          robot.rotateLegs("right", -walk);
-
-          // TOrso
-          robot.rotateTorso("y",-walk/7);
-
-          //Arms
-          robot.rotateArm("left", "x", -walk/2);
-          robot.rotateArm("right", "x", walk/2);
-
-          //foreArm
-          robot.rotateForeArm("left", walk/2)
-          robot.rotateForeArm("right",-walk/2)
-
-        }
+        robot.floorVal += Math.PI / 24;
+        robot.floorVal2 += Math.PI/ 12;
 
 
-        // let float = robot.walkSpeed * (Math.sin(robot.floorVal))
-        // robot.moveTorso("y", -float/10)
-        //
-        //
-        // if (robot.leftUp && robot.legAngle > 0 ){ // Down
-        //   robot.moveTorso("y", -walk/3.3)
-        //
-        //   robot.rotateFeet("right", .03)
-        //
-        //
-        // } else if (!robot.leftUp && robot.legAngle > 0 ) { // up
-        //   robot.moveTorso("y", -walk/3.3)
-        //
-        //   robot.rotateFeet("right", -.03)
-        //
-        //
-        //
-        // } else if (!robot.leftUp && robot.legAngle <= 0 ){ // down
-        //   robot.moveTorso("y", robot.walkSpeed/3.3)
-        //
-        //   robot.rotateFeet("left", .03);
-        //
-        //
-        //
-        // } else if (robot.leftUp && robot.legAngle <= 0 && robot.floorVal >= 0){ //up
-        //   robot.moveTorso("y", robot.walkSpeed/3.3)
-        //
-        //   robot.rotateFeet("left", -.03);
-
-        // }
-
-
-        robot.floorVal += Math.PI / 10;
-        robot.floorVal2 += 1;
-        if (robot.floorVal2 % 10 == 0){
-          robot.leftUp = !robot.leftUp;
-        }
-        // robot.floorVal2 += Math.PI /5;
-        robot.legAngle += robot.walkSpeed;
 
 
 
