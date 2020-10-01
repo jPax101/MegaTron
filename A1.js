@@ -197,7 +197,7 @@ class Robot {
   rightFeetAngle = 0;
   leftUp = true;
   walkSpeed = .05;
-  floorVal = 0;
+  floorVal =  Math.PI/2;
   floorVal2 = 0;
 
 
@@ -931,26 +931,26 @@ function checkKeyboard() {
 
 
 
-        let walk = robot.walkSpeed * Math.sign(Math.sin(robot.floorVal + Math.PI/2));
-        let float = -.02 * Math.sign(Math.sin(robot.floorVal2));
+        let walk = robot.walkSpeed * Math.sign(Math.sin(robot.floorVal));
+        let float = -.01 * 2.5 * Math.sin(robot.floorVal2);
 
         robot.moveTorso("y", float);
 
 
 
-          robot.rotateLegs("left",  walk);
-          robot.rotateLegs("right",  walk);
+        robot.rotateLegs("left",  walk);
+        robot.rotateLegs("right",  walk);
 
-          // y-axis for hip movement
-          robot.rotateTorso("y",walk/7);
+        // y-axis for hip movement
+        robot.rotateTorso("y",walk/7);
 
-          //Arms
-          robot.rotateArm("left", "x", walk/2);
-          robot.rotateArm("right", "x", -walk/2);
+        //Arms
+        robot.rotateArm("left", "x", walk/2);
+        robot.rotateArm("right", "x", -walk/2);
 
-          // foreArm
-          robot.rotateForeArm("left", -walk/2)
-          robot.rotateForeArm("right", walk/2)
+        // foreArm
+        robot.rotateForeArm("left", -walk/2)
+        robot.rotateForeArm("right", walk/2)
 
 
 
