@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16c7fe57-cdfa-49b0-b1d6-b6dd0333f26b" name="Default Changelist" comment="reste a empeche les pied daller en dessous">
+    <list default="true" id="16c7fe57-cdfa-49b0-b1d6-b6dd0333f26b" name="Default Changelist" comment="new chapeau">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/A1.js" beforeDir="false" afterPath="$PROJECT_DIR$/A1.js" afterDir="false" />
     </list>
@@ -38,6 +38,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/A1.js" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/OneDrive/Documents/IFT/IFT 2020_A/IFT3355/TP1/A1.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1hkTUlOcC6oOOqVTXQVOKwZ6O83" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -288,7 +289,8 @@
     <MESSAGE value="Boom!! y marche, reste a le faire pivote pour lui donner un look plus reel et lui faire plier les jambes en marchant" />
     <MESSAGE value="Comment a etre presque fini!" />
     <MESSAGE value="reste a empeche les pied daller en dessous" />
-    <option name="LAST_COMMIT_MESSAGE" value="reste a empeche les pied daller en dessous" />
+    <MESSAGE value="new chapeau" />
+    <option name="LAST_COMMIT_MESSAGE" value="new chapeau" />
   </component>
   <component name="WindowStateProjectService">
     <state x="265" y="-867" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600557962850">
@@ -311,9 +313,10 @@
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
     <state x="442" y="-760" key="MultipleFileMergeDialog/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@0.-1057.1920.1057" timestamp="1600557352472" />
-    <state x="-854" y="-997" key="Vcs.Push.Dialog.v2" timestamp="1601583522924">
-      <screen x="-1080" y="-1478" width="1080" height="1897" />
+    <state x="402" y="264" key="Vcs.Push.Dialog.v2" timestamp="1601584665046">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="402" y="264" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1601584665046" />
     <state x="-854" y="-1044" key="Vcs.Push.Dialog.v2/0.0.1440.900/0.-1080.1920.1080/-1080.-1531.1080.1920@-1080.-1531.1080.1920" timestamp="1600621519968" />
     <state x="-854" y="-997" key="Vcs.Push.Dialog.v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1478.1080.1897@-1080.-1478.1080.1897" timestamp="1601583522924" />
     <state x="-854" y="-1027" key="Vcs.Push.Dialog.v2/0.23.1440.877/0.-1057.1920.1057/-1080.-1508.1080.1897@-1080.-1508.1080.1897" timestamp="1600861377493" />

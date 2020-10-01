@@ -1139,6 +1139,7 @@ function checkKeyboard() {
         break;
       case "Head":
         robot.rotateHead(0.1);
+        robot.rotateHat(0.1)
         break;
       case "Hat":
         robot.rotateHat(0.1)
@@ -1164,6 +1165,7 @@ function checkKeyboard() {
         break;
       case "Head":
         robot.rotateHead(-0.1);
+        robot.rotateHat(-0.1);
         break;
       case "Hat":
         robot.rotateHat(-0.1);
