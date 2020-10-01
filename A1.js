@@ -213,6 +213,12 @@ class Robot {
     this.feetHeight = 0.25;
     this.shoeHeight = .4
 
+    this.hatRadius = 0.5
+
+
+
+
+
 
 
     // Animation
@@ -238,6 +244,14 @@ class Robot {
 
     return initialHeadMatrix;
   }
+
+  initialHatMatrix(){
+    var initialHatMatrix = idMat4();
+    initialHatMatrix =  translateMat(initialHatMatrix, 0, this.torsoHeight/2 + this.hatRadius, 0);
+
+    return initialHatMatrix;
+  }
+
 
   initialLeftLegMatrix(){
 
@@ -344,6 +358,15 @@ class Robot {
     var headGeometry = new THREE.SphereGeometry(this.headRadius,8,6,0,Math.PI * 2,0,Math.PI)
     this.head = new THREE.Mesh(headGeometry, this.material);
 
+    //Hat
+    var hatGeometry  = new THREE.CylinderGeometry(this.hatRadius,this.hatRadius, 0.1,50);
+    // var topHatGeometry = new THREE.CylinderGeometry(this.hatRadius - 0.1,this.hatRadius - 0.1,1,10);
+    //
+    // this.topHatGeometry = new THREE.Mesh(hatGeometry, this.material);
+    // this.hat.merge(topHatGeometry, this.material);
+    this.hat = new THREE.Mesh(hatGeometry, this.material);
+
+
     // arms
     var armGeometry = new THREE.SphereGeometry(this.armRightRadius,8,6,0,Math.PI * 2,0,Math.PI);
     this.armRight = new THREE.Mesh(armGeometry, this.material);
@@ -382,6 +405,12 @@ class Robot {
     this.headMatrix = idMat4();
     var matrixHead = multMat(this.torsoInitialMatrix, this.headInitialMatrix);
     this.head.setMatrix(matrixHead);
+
+    // Hat transformation
+    this.hatInitialMatrix = this.initialHatMatrix();
+    this.hatMatrix = idMat4();
+    var matrixHat = multMat(this.torsoInitialMatrix, this.hatInitialMatrix);
+    this.hat.setMatrix(matrixHat)
 
     // Arm left Transformation
     this.armLeftInitialMatrix = this.initialArmLeftMatrix();
@@ -445,6 +474,7 @@ class Robot {
 	// Add robot to scene
 	scene.add(this.torso);
     scene.add(this.head);
+    scene.add(this.hat)
     scene.add(this.armRight);
     scene.add(this.leftLeg);
     scene.add(this.leftFeet)
@@ -480,6 +510,10 @@ class Robot {
     var matrixHead = multMat(this.headMatrix, this.headInitialMatrix);
     var matrixRotateHead = multMat(matrixTorso, matrixHead);
     this.head.setMatrix(matrixRotateHead);
+
+    var matrixHat = multMat(this.hatMatrix, this.hatInitialMatrix);
+    var matrixRotateHat = multMat(matrixTorso,matrixHat);
+    this.hat.setMatrix(matrixRotateHat);
 
     var matrixArmRight = multMat(this.armRightMatrix, this.armRightInitialMatrix);
     var matrixRotArm = multMat(matrixTorso, matrixArmRight);
@@ -543,6 +577,10 @@ class Robot {
     var matrixTranslateHead = multMat(matrixTorso, matrixHead);
     this.head.setMatrix(matrixTranslateHead);
 
+    var matrixHat = multMat(this.hatMatrix, this.hatInitialMatrix);
+    var matrixTranslateHat = multMat(matrixTorso, matrixHat);
+    this.hat.setMatrix(matrixTranslateHat);
+
     var leftLegMatrix = multMat(this.leftLegMatrix, this.leftLegInitialMatrix);
     leftLegMatrix = multMat(matrixTorso, leftLegMatrix);
     this.leftLeg.setMatrix(leftLegMatrix);
@@ -597,6 +635,23 @@ class Robot {
     matrix = multMat(this.torsoMatrix, matrix);
     matrix = multMat(this.torsoInitialMatrix, matrix);
     this.head.setMatrix(matrix);
+  }
+
+  /**
+   * Rotate hat independent of rest of torso
+   * @param angle y-axis rotation
+   */
+  rotateHat(angle){
+    var hatMatrix = this.hatMatrix;
+
+    this.hatMatrix = idMat4();
+    this.hatMatrix = rotateMat(this.hatMatrix, angle, "y");
+    this.hatMatrix = multMat(hatMatrix, this.hatMatrix);
+
+    var matrixHat = multMat(this.hatMatrix, this.hatInitialMatrix);
+    matrixHat = multMat(this.torsoMatrix, matrixHat);
+    matrixHat = multMat(this.torsoInitialMatrix, matrixHat);
+    this.hat.setMatrix(matrixHat);
   }
 
 
@@ -816,6 +871,7 @@ var selectedRobotComponent = 0;
 var components = [
   "Torso",
   "Head",
+  "Hat",
   "Fore Arms",
   "Arms",
   "legs",
@@ -955,6 +1011,10 @@ function checkKeyboard() {
 
       case "Head":
         break;
+
+      case "Hat":
+        break;
+
       case "Fore Arms" :
         if (robot.foreArmAngleLeft >= 2.2){
           break;
@@ -1076,6 +1136,9 @@ function checkKeyboard() {
       case "Head":
         break;
 
+      case "Hat":
+        break;
+
 
       case "Fore Arms" :
         if (robot.foreArmAngleLeft <= 0){
@@ -1122,6 +1185,9 @@ function checkKeyboard() {
       case "Head":
         robot.rotateHead(0.1);
         break;
+      case "Hat":
+        robot.rotateHat(0.1)
+        break;
       case "Arms" :
 
         if (robot.armAngleZ <= .55){
@@ -1143,6 +1209,9 @@ function checkKeyboard() {
         break;
       case "Head":
         robot.rotateHead(-0.1);
+        break;
+      case "Hat":
+        robot.rotateHat(-0.1);
         break;
       case "Arms" :
 
