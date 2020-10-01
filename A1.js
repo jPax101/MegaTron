@@ -196,7 +196,7 @@ class Robot {
   leftFeetAngle = 0;
   rightFeetAngle = 0;
   leftUp = true;
-  walkSpeed = .05;
+  walkSpeed = .03;
   floorVal =  Math.PI/2;
   floorVal2 = 0;
 
@@ -829,9 +829,6 @@ class Robot {
 
     if (feet === "left"){
 
-      if (robot.leftFeetAngle <.2 && angle < 0){
-        return;
-      }
 
       this.leftFeetMatrix = translateMat(idMat4(), 0,this.torsoHeight   ,0 );
       this.leftFeetMatrix = rotateMat(this.leftFeetMatrix, angle, "x");
@@ -848,9 +845,6 @@ class Robot {
 
     } else {
 
-      if (robot.rightFeetAngle <.1 && angle < 0){
-        return;
-      }
 
 
       this.rightFeetMatrix = translateMat(idMat4(), 0,this.torsoHeight  ,0 );
@@ -932,7 +926,7 @@ function checkKeyboard() {
 
 
         let walk = robot.walkSpeed * Math.sign(Math.sin(robot.floorVal));
-        let float = -.01 * 2.5 * Math.sin(robot.floorVal2);
+        let float = -.011 *  Math.cbrt(Math.sin(robot.floorVal2));
 
         robot.moveTorso("y", float);
 
@@ -952,10 +946,14 @@ function checkKeyboard() {
         robot.rotateForeArm("left", -walk/2)
         robot.rotateForeArm("right", walk/2)
 
+        // Feet
+
+        robot.rotateFeet("left", 5 * -float );
+        robot.rotateFeet("right", 5 * -float );
 
 
-        robot.floorVal += Math.PI / 24;
-        robot.floorVal2 += Math.PI/ 12;
+        robot.floorVal += Math.PI / 40;
+        robot.floorVal2 += Math.PI/ 20;
 
 
 
@@ -1022,71 +1020,36 @@ function checkKeyboard() {
 
 
 
-        // Leg Movement  smaller angles here because we walk backwards diffrently
-        if (robot.legAngle >= .6 && robot.leftUp){
-          robot.walkSpeed = -robot.walkSpeed;
-          robot.leftUp = false;
-        } else if (robot.legAngle <=-.6 && !robot.leftUp){
-          robot.walkSpeed = -robot.walkSpeed;
-          robot.leftUp = true;
-        }
+        let walk = -robot.walkSpeed *  Math.sign(Math.sin(robot.floorVal));
+        let float = .011 *  Math.cbrt(Math.sin(robot.floorVal2));
+
+        robot.moveTorso("y", float);
 
 
 
-        if (robot.leftUp){
-          robot.rotateLegs("left",  robot.walkSpeed);
-          robot.rotateLegs("right",  robot.walkSpeed);
+        robot.rotateLegs("left",  walk);
 
-          // y-axis for hip movement
-          robot.rotateTorso("y",robot.walkSpeed/10);
+        robot.rotateLegs("right",  walk);
 
-          //Arms
-          robot.rotateArm("left", "x", robot.walkSpeed/2);
-          robot.rotateArm("right", "x", -robot.walkSpeed/2);
+        // y-axis for hip movement
+        robot.rotateTorso("y",walk/7);
 
+        //Arms
+        robot.rotateArm("left", "x", walk/2);
+        robot.rotateArm("right", "x", -walk/2);
 
-
-        }
-
-        if (!robot.leftUp){
-
-          //Legs
-          robot.rotateLegs("left", robot.walkSpeed);
-          robot.rotateLegs("right", robot.walkSpeed);
-
-          // TOrso
-          robot.rotateTorso("y",robot.walkSpeed/10);
-
-          //Arms
-          robot.rotateArm("left", "x", robot.walkSpeed/2);
-          robot.rotateArm("right", "x", -robot.walkSpeed/2);
-
-        }
-
-        robot.legAngle += robot.walkSpeed
-
-
-        if (robot.leftUp && robot.legAngle > 0 ){ // Down
-          robot.moveTorso("y", -robot.walkSpeed/3.3)
+        // foreArm
+        robot.rotateForeArm("left", -walk/2)
+        robot.rotateForeArm("right", walk/2)
 
 
 
+        robot.floorVal -= Math.PI / 40;
+        robot.floorVal2 -= Math.PI/ 20;
 
-        } else if (!robot.leftUp && robot.legAngle > 0 && robot.floorVal <= 0) { // up
-          robot.moveTorso("y", -robot.walkSpeed/3.3)
-
-
-
-        } else if (!robot.leftUp && robot.legAngle <= 0){ // down
-          robot.moveTorso("y", robot.walkSpeed/3.3)
+        break;
 
 
-        } else if (robot.leftUp && robot.legAngle <= 0 && robot.floorVal <= 0){ //up
-          robot.moveTorso("y", robot.walkSpeed/3.3)
-
-
-
-        }
 
       case "Head":
         break;
