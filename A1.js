@@ -248,9 +248,16 @@ class Robot {
 
   initialHatMatrix(){
     var initialHatMatrix = idMat4();
-    initialHatMatrix =  translateMat(initialHatMatrix, 0, this.torsoHeight/2 + this.hatRadius, 0);
+    initialHatMatrix =  translateMat(initialHatMatrix, 0, this.torsoHeight/2 + this.hatRadius + 0.2, 0);
 
     return initialHatMatrix;
+  }
+
+  initialTopHatMatrix(){
+    var initialTopHatMatrix = idMat4();
+    initialTopHatMatrix =  translateMat(initialTopHatMatrix, 0, this.torsoHeight/2 + this.hatRadius + 0.5, 0);
+
+    return initialTopHatMatrix;
   }
 
 
@@ -361,10 +368,12 @@ class Robot {
 
     //Hat
     var hatGeometry  = new THREE.CylinderGeometry(this.hatRadius,this.hatRadius, 0.1,50);
-    // var topHatGeometry = new THREE.CylinderGeometry(this.hatRadius - 0.1,this.hatRadius - 0.1,1,10);
-    //
-    // this.topHatGeometry = new THREE.Mesh(hatGeometry, this.material);
-    // this.hat.merge(topHatGeometry, this.material);
+    var topHatGeometry = new THREE.CylinderGeometry(this.hatRadius - 0.1,this.hatRadius - 0.1,0.5,10);
+
+    this.topHatGeometry = new THREE.Mesh(topHatGeometry, this.material);
+    this.topHatGeometry.setMatrix(this.initialTopHatMatrix())
+    hatGeometry.merge(topHatGeometry);
+
     this.hat = new THREE.Mesh(hatGeometry, this.material);
 
 

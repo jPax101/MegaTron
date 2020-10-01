@@ -37,7 +37,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/A1.js" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/A1.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/OneDrive/Documents/IFT/IFT 2020_A/IFT3355/TP1/A1.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1hkTUlOcC6oOOqVTXQVOKwZ6O83" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -90,6 +91,7 @@
       <workItem from="1601134482293" duration="212000" />
       <workItem from="1601553547675" duration="8945000" />
       <workItem from="1601567611787" duration="5960000" />
+      <workItem from="1601583685247" duration="884000" />
     </task>
     <task id="LOCAL-00001" summary="Commit Test">
       <created>1600554212714</created>
