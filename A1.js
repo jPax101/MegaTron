@@ -1,7 +1,9 @@
-// Team Jean --
-// Jean-Marc Prud'homme (20137035)
-// Jean-Daniel Toupin
-// TP1 IFT 3355 -  MEGATRON
+/* Team Jean --
+ Jean-Marc Prud'homme (20137035)
+ Jean-Daniel Toupin
+ TP1 IFT 3355 -  MEGATRON
+
+* */
 
 
 THREE.Object3D.prototype.setMatrix = function(a) {
@@ -367,8 +369,8 @@ class Robot {
     this.head = new THREE.Mesh(headGeometry, this.material);
 
     //Hat
-    var hatGeometry  = new THREE.CylinderGeometry(this.hatRadius,this.hatRadius, 0.1,50);
-    var topHatGeometry = new THREE.CylinderGeometry(this.hatRadius - 0.1,this.hatRadius - 0.1,0.5,10);
+    var hatGeometry  = new THREE.CylinderGeometry(.45,this.hatRadius, 0.1,50);
+    var topHatGeometry = new THREE.CylinderGeometry(0,1, .5,64,64);
 
     this.topHatGeometry = new THREE.Mesh(topHatGeometry, this.material);
     this.topHatGeometry.setMatrix(this.initialTopHatMatrix())
@@ -493,10 +495,6 @@ class Robot {
     scene.add(this.leftForeArm);
     scene.add(this.rightLeg);
     scene.add(this.rightFeet);
-
-    //TODO - Finir les pieds
-    // scene.add(this.leftShoe);
-    // scene.add(this.rightShoe);
 
   }
 
@@ -645,6 +643,12 @@ class Robot {
     matrix = multMat(this.torsoMatrix, matrix);
     matrix = multMat(this.torsoInitialMatrix, matrix);
     this.head.setMatrix(matrix);
+
+    var matrixHat = multMat(this.hatMatrix, this.hatInitialMatrix);
+    matrixHat = multMat(this.headMatrix, matrixHat);
+    matrixHat = multMat(this.torsoMatrix, matrixHat);
+    matrixHat = multMat(this.torsoInitialMatrix, matrixHat);
+    this.hat.setMatrix(matrixHat);
   }
 
   /**
@@ -662,6 +666,7 @@ class Robot {
     matrixHat = multMat(this.torsoMatrix, matrixHat);
     matrixHat = multMat(this.torsoInitialMatrix, matrixHat);
     this.hat.setMatrix(matrixHat);
+
   }
 
 
@@ -876,8 +881,8 @@ var components = [
   "Torso",
   "Head",
   "Hat",
-  "Fore Arms",
   "Arms",
+  "Fore Arms",
   "legs",
   "feet"
 ];
@@ -926,7 +931,7 @@ function checkKeyboard() {
 
 
         let walk = robot.walkSpeed * Math.sign(Math.sin(robot.floorVal));
-        let float = -.011 *  Math.cbrt(Math.sin(robot.floorVal2));
+        let float = -.009 *  Math.sin(robot.floorVal2)/.75;
 
         robot.moveTorso("y", float);
 
@@ -948,15 +953,12 @@ function checkKeyboard() {
 
         // Feet
 
-        robot.rotateFeet("left", 5 * -float );
-        robot.rotateFeet("right", 5 * -float );
+        robot.rotateFeet("left",  -float );
+        robot.rotateFeet("right", -float );
 
 
         robot.floorVal += Math.PI / 40;
         robot.floorVal2 += Math.PI/ 20;
-
-
-
 
 
 
@@ -1002,7 +1004,6 @@ function checkKeyboard() {
 
       case "feet":
 
-        //TODO bounds
         robot.rotateFeet("left",0.1)
         robot.rotateFeet("right",0.1)
         break;
@@ -1021,7 +1022,7 @@ function checkKeyboard() {
 
 
         let walk = -robot.walkSpeed *  Math.sign(Math.sin(robot.floorVal));
-        let float = .011 *  Math.cbrt(Math.sin(robot.floorVal2));
+        let float = .009 *  Math.sin(robot.floorVal2)/.75;
 
         robot.moveTorso("y", float);
 
@@ -1102,7 +1103,7 @@ function checkKeyboard() {
         break;
       case "Head":
         robot.rotateHead(0.1);
-        robot.rotateHat(0.1)
+
         break;
       case "Hat":
         robot.rotateHat(0.1)
@@ -1128,7 +1129,7 @@ function checkKeyboard() {
         break;
       case "Head":
         robot.rotateHead(-0.1);
-        robot.rotateHat(-0.1);
+
         break;
       case "Hat":
         robot.rotateHat(-0.1);
